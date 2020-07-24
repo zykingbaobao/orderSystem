@@ -1,0 +1,14 @@
+mybatis:
+    mapper-locations: classpath:/mybatis/*Mapper.xml
+server:
+    port: 8000
+    servlet:
+        context-path: /order
+spring:
+    application:
+        name: demo
+    datasource:
+        password: root
+        url: jdbc:mysql://127.0.0.1:3306/order?useSSL=false&allowMultiQueries=true&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&serverTimezone=CTT
+        username: root
+        driver-class-name: com.mysql.cj.jdbc.Driver
