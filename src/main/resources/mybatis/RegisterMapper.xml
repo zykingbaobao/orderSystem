@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ffcs.order.mapper.RegisterMapper">
+<insert id="insert" >
+    insert into user_table(userId,userName,address,password,createTime,updateTime)
+    value (#{userId},#{userName},#{address},#{password},#{createTime},#{updateTime})
+
+</insert>
+</mapper>
