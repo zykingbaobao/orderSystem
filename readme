@@ -1,0 +1,14 @@
+├── src                         // 源代码
+                                             │   ├── config                  // 拦截器，配置类
+                                             │   ├── pojo                    // 不含逻辑java类
+                                             │   ├── entity                  // java实体类
+                                             │   ├── controller              // 控制层
+                                             │   ├── service                 // 服务层
+                                             │   └──mapper                   // 数据调用层
+                                             │   └── test                   //测试用文件夹
+                                             ├── resources
+                                             │   ├──mybatis                 //mybatis的xml文件存放
+                                             │   ├──static                  // 第三方不打包资源
+                                             │   └──application.yml         //应用配置文件
+                                             ├── .gitignore                 // git 忽略项
+                                             └── pom.xml                    // maven依赖配置文件
