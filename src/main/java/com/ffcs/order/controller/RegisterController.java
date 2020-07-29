@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class RegisterController {
     @Autowired
     private RegisterMapper re;
-    @RequestMapping(path = "/Register", method = RequestMethod.POST)
+    @RequestMapping(path = "/register", method = RequestMethod.POST)
     public String register(@RequestParam(required=false) String userId,
                            @RequestParam(required=false) String userName,
                            @RequestParam(required=false) String address,

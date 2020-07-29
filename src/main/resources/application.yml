@@ -6,9 +6,17 @@ server:
         context-path: /order
 spring:
     application:
-        name: demo
+        name: order
     datasource:
         password: root
-        url: jdbc:mysql://127.0.0.1:3306/order?useSSL=false&allowMultiQueries=true&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&serverTimezone=CTT
+        url: jdbc:mysql://127.0.0.1:3306/orderSystem?useSSL=false&allowMultiQueries=true&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&serverTimezone=CTT
         username: root
         driver-class-name: com.mysql.cj.jdbc.Driver
+config:
+    jwt:
+        # 加密密钥
+        secret: abcdefg1234567
+        # token有效时长
+        expire: 3600
+        # header 名称
+        header: token
