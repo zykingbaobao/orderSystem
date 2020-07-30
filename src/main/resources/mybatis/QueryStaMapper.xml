@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ffcs.order.mapper.QueryStaMapper">
+    <select id="selectById"  resultType="com.ffcs.order.entity.orderStatistics">
+        select  * from orderStatistics_table where commodityId=#{commodityId}
+    </select>
+    <select id="selectById"  resultType="com.ffcs.order.entity.statistics">
+        select  * from statistics_table where updateTime=#{updateTime}
+    </select>
+
+</mapper>

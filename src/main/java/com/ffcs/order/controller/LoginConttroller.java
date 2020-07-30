@@ -9,10 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Controller
 public class LoginConttroller {
@@ -24,13 +20,13 @@ public class LoginConttroller {
     public String login(@RequestParam String userId,
                         @RequestParam String password) {
 
-                 user us=login.select(userId,password);
-                 if(us.getUserName()!=null){
+        user us=login.select(userId,password);
+        System.out.println(us.getUserName());
+        if(us.getUserName()!=null){
 
-                     return jwTtool.getToken(userId);
-                 }
-                     return "0";
-
+            return jwTtool.getToken(userId);
+        }
+        return "0";
     }
 
 

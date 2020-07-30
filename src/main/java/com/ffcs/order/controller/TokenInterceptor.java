@@ -1,5 +1,6 @@
 package com.ffcs.order.controller;
 
+import ch.qos.logback.core.net.SyslogOutputStream;
 import com.ffcs.order.tools.JWTtool;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.SignatureException;
@@ -15,13 +16,13 @@ import javax.servlet.http.HttpServletResponse;
 public class TokenInterceptor extends HandlerInterceptorAdapter {
     @Resource
     private JWTtool jwTtool;
-
     @Override
     public boolean preHandle(HttpServletRequest request,
                              HttpServletResponse response,
                              Object handler) throws SignatureException {
         /** 地址过滤 */
         String uri = request.getRequestURI();
+        System.out.println("uri="+uri);
         if (uri.contains("/login")) {
             return true;
         }
