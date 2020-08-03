@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 
 @Controller
 public class RegisterController {
@@ -22,13 +25,18 @@ public class RegisterController {
         user ss=new user();
         ss.setUserId(userId);
         ss.setUserName(userName);
-        if(password1==password2)
+        if(password1.equals(password2))
         {
             ss.setPassword(password1);
         }
+        Date date=new Date();
+        SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String dt=simpleDateFormat.format(date);
+        ss.setCreateTime(dt);
+        ss.setUpdateTime(dt);
         ss.setAddress(address);
         re.insert(ss);
 
-           return "index";
+           return "1";
     }
 }

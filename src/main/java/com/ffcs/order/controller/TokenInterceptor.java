@@ -29,6 +29,15 @@ public class TokenInterceptor extends HandlerInterceptorAdapter {
         if (uri.contains("/register")) {
             return true;
         }
+        if (uri.contains("/swagger-ui")) {
+            return true;
+        }
+        if (uri.contains("/springfox")) {
+            return true;
+        }
+        if (uri.contains("/swagger-resources")) {
+            return true;
+        }
         /** Token 验证 */
         String token = request.getHeader(jwTtool.getHeader());
         if (StringUtils.isEmpty(token)) {

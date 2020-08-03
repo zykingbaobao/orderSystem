@@ -4,7 +4,7 @@
     <select id="selectById"  resultType="com.ffcs.order.entity.orderStatistics">
         select  * from orderStatistics_table where commodityId=#{commodityId}
     </select>
-    <select id="selectById"  resultType="com.ffcs.order.entity.statistics">
+    <select id="selectSta"  resultType="com.ffcs.order.entity.statistics">
         select  * from statistics_table where updateTime=#{updateTime}
     </select>
 
