@@ -2,12 +2,16 @@ package com.ffcs.order.entity;
 
 import lombok.Data;
 
+import java.util.Date;
 @Data
-public class user {
+public class Order {
+    private String orderId;
     private String userId;
-    private String userName;
     private String address;
-    private String password;
+    private float orderMoney;
+    private int status;
+    private Date orderTime;
     private String createTime;
     private String updateTime;
+
 }

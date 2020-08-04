@@ -3,7 +3,7 @@ package com.ffcs.order.entity;
 import lombok.Data;
 
 @Data
-public class cancelorderapplication {
+public class Cancelorderapplication {
     private String orderNumber;
     private String userId;
     private String reason;

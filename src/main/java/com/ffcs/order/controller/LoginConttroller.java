@@ -2,13 +2,12 @@ package com.ffcs.order.controller;
 
 
 import com.alibaba.fastjson.JSONObject;
-import com.ffcs.order.entity.user;
+import com.ffcs.order.entity.User;
 import com.ffcs.order.mapper.LoginMapper;
 import com.ffcs.order.tools.JWTtool;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @Api(tags = "登陆")
@@ -23,7 +22,7 @@ public class LoginConttroller {
     public String login(@RequestParam String userId,
                         @RequestParam String password) {
 
-        user us=login.select(userId,password);
+        User us=login.select(userId,password);
         System.out.println(us.getUserName());
         JSONObject json=new JSONObject();
         if(us.getUserName()!=null){

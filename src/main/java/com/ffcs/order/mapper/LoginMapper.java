@@ -1,11 +1,11 @@
 package com.ffcs.order.mapper;
 
 
-import com.ffcs.order.entity.user;
+import com.ffcs.order.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface LoginMapper {
-    public user select(String userId, String password) ;
+    public User select(String userId, String password) ;
 
 }

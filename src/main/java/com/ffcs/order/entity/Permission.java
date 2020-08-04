@@ -3,11 +3,12 @@ package com.ffcs.order.entity;
 import lombok.Data;
 
 @Data
-public class staff {
-    private String staffId;
-    private String staffName;
+public class Permission {
     private String permissionId;
-    private String password;
+    private String permissionName;
+    private String havePermission;
     private String createTime;
     private String updateTime;
+
+
 }

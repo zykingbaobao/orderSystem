@@ -1,6 +1,6 @@
 package com.ffcs.order.controller;
 
-import com.ffcs.order.entity.user;
+import com.ffcs.order.entity.User;
 import com.ffcs.order.mapper.RegisterMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,7 +22,7 @@ public class RegisterController {
                            @RequestParam(required=false) String address,
                            @RequestParam(required=false) String password1,
                            @RequestParam(required=false) String password2) {
-        user ss=new user();
+        User ss=new User();
         ss.setUserId(userId);
         ss.setUserName(userName);
         if(password1.equals(password2))

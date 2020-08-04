@@ -1,4 +1,4 @@
 package com.ffcs.order.pojo;
 
-public class orderPojo {
+public class OrderPojo {
 }

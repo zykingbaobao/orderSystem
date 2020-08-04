@@ -1,8 +1,7 @@
 package com.ffcs.order.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.ffcs.order.entity.order;
-import com.ffcs.order.entity.user;
+import com.ffcs.order.entity.Order;
 import com.ffcs.order.mapper.OrderMapper;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -26,7 +25,7 @@ public class OrderConttroller {
                                    @RequestParam int pageNum,
                                    @RequestParam int pageSize
                                    ) {
-        List<order> list=new ArrayList<order>();
+        List<Order> list=new ArrayList<Order>();
         pageNum=(pageNum-1)*pageSize;
         list=orderMapper.queryOrderByPage(userId,pageNum,pageSize);
         JSONObject json=new JSONObject();

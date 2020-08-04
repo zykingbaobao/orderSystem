@@ -3,7 +3,7 @@ package com.ffcs.order.entity;
 import lombok.Data;
 
 @Data
-public class commodity {
+public class Commodity {
     private  String commodityId;
     private  String commodityName;
     private  String describe;
