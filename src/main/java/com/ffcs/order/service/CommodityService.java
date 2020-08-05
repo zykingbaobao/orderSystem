@@ -1,23 +1,23 @@
 package com.ffcs.order.service;
 
-import com.ffcs.order.dao.commodityDao;
-import com.ffcs.order.entity.commodity;
+import com.ffcs.order.dao.CommodityDao;
+import com.ffcs.order.entity.Commodity;
 
 @Service
 @Transactional
 public class commodityService {
 	  @Autowired
-	  private commodityDao commodityDao;
+	  private CommodityDao commodityDao;
 	    public void deleteCommodity(int cid) {//É¾³ý
 	    	commodityDao.deleteCommodity(cid);
 	    }
-	    public commodity queryByCommodity(commodity commodity) {
+	    public commodity queryByCommodity(Commodity commodity) {
 			return commodityDao.queryByCommodity(commodity);
 		}
 	    public void editCommodity(Integer cid) {
 			commodityDao.deleteCommodity(cid);
 		}
-	    public void insertCommodity(commodity commodity) {
+	    public void insertCommodity(Commodity commodity) {
 	    	commodityDao.insertCommodity(commodity);
 	    }
 

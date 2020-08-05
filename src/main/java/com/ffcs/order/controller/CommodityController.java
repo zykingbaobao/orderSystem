@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/commodity")   
 public class CommodityController {
     @Autowired
-    private commodityService commodityService;
+    private CommodityService commodityService;
 
     //查询所有商品
     @RequestMapping("/findAll.action")
     public String findAll(HttpServletRequest request) {//分页查询currentPage
-        commodity commodity = commodityService.queryByCommodity();//id为int类型
+        Commodity commodity = commodityService.queryByCommodity();//id为int类型
         String jsonString = JSON.toJSONString(commodity);//对象转为json
         System.out.println("jsonString:" + jsonString);
         return jsonString;
@@ -24,7 +24,7 @@ public class CommodityController {
     //添加商品
     @RequestMapping("/add.action")
     @ResponseBody
-    public String add(commodity commodity) {
+    public String add(Commodity commodity) {
         //获得yyyy-MM-dd格式的时间
 
         String currentTime = commodity.getdate();
@@ -36,7 +36,7 @@ public class CommodityController {
     //编辑
     @RequestMapping("/edit.action")
     @ResponseBody
-    public void edit(commodity commodity) {
+    public void edit(Commodity commodity) {
         String cid = null;//心愿单id
         String currentTime = commodity.getWdate();
 
