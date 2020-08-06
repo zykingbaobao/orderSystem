@@ -8,9 +8,9 @@ spring:
     application:
         name: order
     datasource:
-        password: root
-        url: jdbc:mysql://127.0.0.1:3306/orderSystem?useSSL=false&allowMultiQueries=true&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&serverTimezone=CTT
-        username: root
+        password: FFCS-java3
+        url: jdbc:mysql://47.94.149.145/java3db?useSSL=false&allowMultiQueries=true&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&serverTimezone=CTT
+        username: java3
         driver-class-name: com.mysql.cj.jdbc.Driver
 config:
     jwt:

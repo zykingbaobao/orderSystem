@@ -3,7 +3,7 @@
 <mapper namespace="com.ffcs.order.mapper.LoginMapper">
 
     <select id="select"  resultType="com.ffcs.order.entity.User">
-        select  * from user_table where userId=#{userId} and password=#{password}
+        select  * from t_user where userId=#{userId} and password=#{password}
     </select>
 
 </mapper>

@@ -2,10 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ffcs.order.mapper.QueryStaMapper">
     <select id="selectById"  resultType="com.ffcs.order.entity.OrderStatistics">
-        select  * from orderStatistics_table where commodityId=#{commodityId}
+        select  * from t_orderStatistics where commodityId=#{commodityId}
     </select>
     <select id="selectSta"  resultType="com.ffcs.order.entity.Statistics">
-        select  * from statistics_table where updateTime=#{updateTime}
+        select  * from t_statistics where updateTime=#{updateTime}
     </select>
 
 </mapper>

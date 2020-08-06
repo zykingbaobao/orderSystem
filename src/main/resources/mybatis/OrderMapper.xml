@@ -2,9 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ffcs.order.mapper.OrderMapper">
     <select id="queryOrderByPage">
-        select * from order_table where userId=#{userId}  order by create_time desc limit #{pageNum},#{pageSize}
+        select * from t_order  where userId=#{userId}  order by create_time desc limit #{pageNum},#{pageSize}
     </select>
     <delete id="deleteOrderById">
-        delete from order_table where orderId=#{orderId}
+        delete from t_order where orderId=#{orderId}
 </delete>
 </mapper>
