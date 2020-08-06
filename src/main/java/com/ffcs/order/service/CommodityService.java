@@ -1,17 +1,20 @@
 package com.ffcs.order.service;
 
-import com.ffcs.order.dao.CommodityDao;
 import com.ffcs.order.entity.Commodity;
+import com.ffcs.order.mapper.CommodityDao;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @Transactional
-public class commodityService {
+public class CommodityService {
 	  @Autowired
 	  private CommodityDao commodityDao;
-	    public void deleteCommodity(int cid) {//É¾³ý
+	    public void deleteCommodity(int cid) {//É¾ï¿½ï¿½
 	    	commodityDao.deleteCommodity(cid);
 	    }
-	    public commodity queryByCommodity(Commodity commodity) {
+	    public Commodity queryByCommodity(Commodity commodity) {
 			return commodityDao.queryByCommodity(commodity);
 		}
 	    public void editCommodity(Integer cid) {
