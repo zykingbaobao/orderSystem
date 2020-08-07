@@ -39,7 +39,7 @@ public class OrderConttroller {
     public int deleteOrderById(Cancelorderapplication cancelorderapplication
                                ) {
 
-
+               orderMapper.insertCancelOrder(cancelorderapplication);
         return orderMapper.deleteOrderById(cancelorderapplication.getOrderNumber());
 
     }

@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Map;
 
 import com.ffcs.order.entity.Commodity;
+import org.apache.ibatis.annotations.Mapper;
+
 
 public interface CommodityDao{
 	 Commodity queryByCommodity(Commodity commodity);//查询商品
