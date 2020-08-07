@@ -2,32 +2,31 @@ package com.ffcs.order.controller;
 
 
 import com.alibaba.fastjson.JSONObject;
-import com.ffcs.order.entity.User;
-import com.ffcs.order.mapper.LoginMapper;
+import com.ffcs.order.entity.Staff;
+import com.ffcs.order.mapper.StaffLoginMapper;
 import com.ffcs.order.tools.JWTtool;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-@Api(tags = "登陆")
+@Api(tags = "后台登陆")
 @RestController
-public class LoginConttroller {
+public class StaffLoginConttroller {
     @Autowired
-    private LoginMapper login;
+    private StaffLoginMapper login;
     @Autowired
     private JWTtool jwTtool;
-    @ApiOperation(value = "登陆接口", notes = "")
+    @ApiOperation(value = "员工登陆接口", notes = "")
     @RequestMapping(path = "/login", method = RequestMethod.POST)
-    public String login(@RequestParam String userId,
+    public String login(@RequestParam String staffId,
                         @RequestParam String password) {
 
-        User us=login.select(userId,password);
-        System.out.println(us.getUserName());
+        Staff staff=login.select(staffId,password);
         JSONObject json=new JSONObject();
-        if(us.getUserName()!=null){
+        if(staff.getPermissionId()!=null){
 
-            String gson= json.toJSONString(jwTtool.getToken(userId));
+            String gson= json.toJSONString(jwTtool.getToken(staffId));
             return gson;
         }
         return "0";

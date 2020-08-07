@@ -1,6 +1,7 @@
 package com.ffcs.order.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.ffcs.order.entity.Cancelorderapplication;
 import com.ffcs.order.entity.Order;
 import com.ffcs.order.mapper.OrderMapper;
 import io.swagger.annotations.Api;
@@ -35,10 +36,11 @@ public class OrderConttroller {
     }
     @ApiOperation(value = "退订订单接口", notes = "")
     @RequestMapping(path = "/deleteOrderById", method = RequestMethod.POST)
-    public int deleteOrderById(@RequestParam String orderId
-    ) {
+    public int deleteOrderById(Cancelorderapplication cancelorderapplication
+                               ) {
 
-        return orderMapper.deleteOrderById(orderId);
+
+        return orderMapper.deleteOrderById(cancelorderapplication.getOrderNumber());
 
     }
 

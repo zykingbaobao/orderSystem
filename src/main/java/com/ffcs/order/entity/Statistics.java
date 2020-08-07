@@ -1,7 +1,10 @@
 package com.ffcs.order.entity;
 
 import lombok.Data;
-
+/**
+ * @author 张勇
+ * @Description:统计信息类
+ */
 @Data
 public class Statistics {
     private int orderNumber;

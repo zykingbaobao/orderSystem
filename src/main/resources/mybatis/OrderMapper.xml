@@ -7,4 +7,7 @@
     <delete id="deleteOrderById">
         delete from t_order where orderId=#{orderId}
 </delete>
+    <insert id="insertCancelOrder">
+        insert into t_cancelorderapplication(orderNumber,userId,reason,status,feedback,createTime,updateTime) values(#{orderNumber},#{userId},#{reason},#{status},#{feedback},#{createTime},#{updateTime})
+    </insert>
 </mapper>

@@ -2,6 +2,10 @@ package com.ffcs.order.entity;
 
 import lombok.Data;
 
+/**
+ * @author 张勇
+ * @Description:权限信息类
+ */
 @Data
 public class Permission {
     private String permissionId;
