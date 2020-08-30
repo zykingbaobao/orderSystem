@@ -5,6 +5,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.ffcs.order.entity.OrderStatistics;
 import com.ffcs.order.entity.Statistics;
 import com.ffcs.order.mapper.QueryStaMapper;
+import com.ffcs.order.service.QueryStaService;
 import com.ffcs.order.tools.JWTtool;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -19,24 +20,22 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class QueryStaConttroller {
     @Autowired
-    private QueryStaMapper qsm;
+    QueryStaService queryStaService;
     @Autowired
     private JWTtool jwTtool;
     @ApiOperation(value = "查询商品类别统计数据接口，入参商品id", notes = "")
     @RequestMapping(path = "/QueryStaById", method = RequestMethod.POST)
     public String QueryStaById(@RequestParam String commodityId) {
-        JSONObject json=new JSONObject();
-        OrderStatistics us=qsm.selectById(commodityId);
-        String gson= json.toJSONString(us);
-        return gson;
+//        JSONObject json=new JSONObject();
+//        OrderStatistics us=qsm.selectById(commodityId);
+//        String gson= json.toJSONString(us);
+        return "gson";
     }
     @ApiOperation(value = "按天查询统计数据接口", notes = "")
     @RequestMapping(path = "/QuerySta", method = RequestMethod.POST)
     public String QuerySta(@RequestParam String updateTime) {
-        JSONObject json=new JSONObject();
-        Statistics us=qsm.selectSta(updateTime);
-        String gson= json.toJSONString(us);
-        return gson;
+
+        return queryStaService.querySta();
     }
 
 

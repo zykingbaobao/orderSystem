@@ -5,7 +5,7 @@
         select  * from t_orderStatistics where commodityId=#{commodityId}
     </select>
     <select id="selectSta"  resultType="com.ffcs.order.entity.Statistics">
-        select  * from t_statistics where updateTime=#{updateTime}
+        select  * from t_statistics
     </select>
 
 </mapper>

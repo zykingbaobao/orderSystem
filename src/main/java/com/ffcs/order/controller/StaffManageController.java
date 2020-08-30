@@ -23,4 +23,13 @@ public class StaffManageController {
 
            return staffManageService.regisiter(staffName,permissionId,password);
     }
+
+    @ApiOperation(value = "员工注册接口", notes = "")
+    @RequestMapping(path = "/register", method = RequestMethod.POST)
+    public String update( @RequestParam String staffName,
+                            @RequestParam String permissionId,
+                            @RequestParam String password) {
+
+        return staffManageService.update(staffName,permissionId,password);
+    }
 }

@@ -8,7 +8,7 @@ import lombok.Data;
  */
 @Data
 public class Staff {
-    private String staffId;
+    private int  staffId;
     private String staffName;
     private String permissionId;
     private String password;

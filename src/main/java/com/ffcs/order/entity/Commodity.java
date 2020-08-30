@@ -8,7 +8,7 @@ import lombok.Data;
  */
 @Data
 public class Commodity {
-    private  String commodityId;
+    private  int commodityId;
     private  String commodityName;
     private  String describe;
     private  float commodityMoney;

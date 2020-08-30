@@ -7,6 +7,7 @@ import lombok.Data;
  */
 @Data
 public class Statistics {
+
     private int orderNumber;
     private float orderAmount;
     private String date;

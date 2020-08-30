@@ -32,7 +32,7 @@ public class StaffLoginService {
             reInfoPojo.setMessage("登陆成功！");
             Map<String,String> data=new HashMap<>();
             data.put("token",gson);
-            data.put("staffId",staff.getStaffId().toString());
+            data.put("staffId",Integer.toString(staff.getStaffId()));
             data.put("staffName",staff.getStaffName());
             data.put("permissionId",staff.getPermissionId().toString());
             data.put("password",staff.getPassword());
