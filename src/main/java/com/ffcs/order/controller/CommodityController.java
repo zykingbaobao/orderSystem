@@ -2,6 +2,7 @@ package com.ffcs.order.controller;
 import javax.servlet.http.HttpServletRequest;
 
 import com.ffcs.order.entity.Commodity;
+import com.ffcs.order.service.CommodityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
