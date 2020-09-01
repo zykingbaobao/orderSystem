@@ -11,4 +11,5 @@ public interface StaffManageMapper {
     public int  insert(Staff staff);
     public int  update(Staff staff);
     public List<Staff> select();
+    public Staff login(Integer staffId, String password);
 }

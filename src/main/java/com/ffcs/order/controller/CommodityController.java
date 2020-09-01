@@ -1,6 +1,4 @@
 package com.ffcs.order.controller;
-import javax.servlet.http.HttpServletRequest;
-
 import com.ffcs.order.entity.Commodity;
 import com.ffcs.order.service.CommodityService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,11 +59,11 @@ public class CommodityController {
                return commodityService.editCommodity(commodity);
     }
 
-    //删除心愿单
+    //删除商品
     @RequestMapping("/delete.action")
     @ResponseBody
-    public void delete(int id) {
-        commodityService.deleteCommodity(id);
+    public String delete(String commodityId) {
+       return commodityService.deleteCommodity(commodityId);
 
     }
 }

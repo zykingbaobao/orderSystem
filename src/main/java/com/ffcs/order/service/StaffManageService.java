@@ -111,5 +111,38 @@ public class StaffManageService {
         }
 
     }
+    public String login( Integer staffId,
+                         String password ){
+
+        Staff staff=re.login(staffId,password);
+        JSONObject json=new JSONObject();
+        if(staff.getPermissionId()!=null){
+
+            String gson= json.toJSONString(jwTtool.getToken(Integer.toString(staffId)));
+            ReInfoPojo reInfoPojo =new ReInfoPojo();
+            reInfoPojo.setCode("1");
+            reInfoPojo.setMessage("登陆成功！");
+            Map<String,String> data=new HashMap<>();
+            data.put("token",gson);
+            data.put("staffId",Integer.toString(staff.getStaffId()));
+            data.put("staffName",staff.getStaffName());
+            data.put("permissionId",staff.getPermissionId().toString());
+            data.put("password",staff.getPassword());
+            reInfoPojo.setData(data);
+            gson= json.toJSONString(reInfoPojo);
+            return gson;
+        }else {
+
+            String gson= json.toJSONString(jwTtool.getToken(Integer.toString(staffId)));
+            ReInfoPojo reInfoPojo =new ReInfoPojo();
+            reInfoPojo.setCode("0");
+            reInfoPojo.setMessage("登陆失败！");
+            Map<String,String> data=new HashMap<>();
+            reInfoPojo.setData(data);
+            gson= json.toJSONString(reInfoPojo);
+            return gson;
+        }
+
+    }
 
 }

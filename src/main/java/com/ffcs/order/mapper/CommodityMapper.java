@@ -11,6 +11,6 @@ public interface CommodityMapper{
 	 Commodity queryByCommodity(Commodity commodity);//查询商品
 	 List<Commodity> select();//查询商品
 	 int  editCommodity(Commodity commodity);//编辑
-	 void deleteCommodity(int commodityId);//删除
+	 int delete(Integer commodityId);//删除
 	 int insert(Commodity commodity);//添加
 }

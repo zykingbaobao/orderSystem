@@ -12,4 +12,8 @@
     <select id="select" resultType="com.ffcs.order.entity.Commodity">
         select * from t_commodity
     </select>
+    <delete id="delete">
+
+        delete from t_commodity where commodityId=#{commodityId}
+    </delete>
 </mapper>

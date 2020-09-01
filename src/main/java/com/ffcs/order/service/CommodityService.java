@@ -21,8 +21,25 @@ import java.util.Map;
 public class CommodityService {
     @Resource
     private CommodityMapper commodityMapper;
-    public void deleteCommodity(int cid) {//ɾ��
-//        commodityDao.deleteCommodity(cid);
+    public String deleteCommodity(String commodityId) {
+    int i=0;
+    JSONObject json=new JSONObject();
+    i=commodityMapper.delete(Integer.valueOf(commodityId));
+if(i>=1){
+
+    Map<String,String> data=new HashMap<>();
+    data.put("code","1");
+    data.put("message","删除商品成功！");
+    String gson= json.toJSONString( data);
+    return gson;
+}else {
+    Map<String,String> data=new HashMap<>();
+    data.put("code","0");
+    data.put("message","删除商品失败！");
+    String gson= json.toJSONString( data);
+    return gson;
+}
+
     }
 //    public Commodity queryByCommodity(Commodity commodity) {
 ////        return commodityDao.queryByCommodity(commodity);
