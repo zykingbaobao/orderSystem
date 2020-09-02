@@ -10,7 +10,7 @@ import java.util.Date;
  */
 @Data
 public class Order {
-    private String orderId;
+    private int orderId;
     private String userId;
     private String address;
     private float orderMoney;

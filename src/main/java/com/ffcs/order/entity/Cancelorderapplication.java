@@ -8,7 +8,7 @@ import lombok.Data;
  */
 @Data
 public class Cancelorderapplication {
-    private String orderNumber;
+    private int orderId;
     private String userId;
     private String reason;
     private String status;
