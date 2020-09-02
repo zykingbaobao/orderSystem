@@ -33,7 +33,7 @@ public class QueryStaConttroller {
     }
     @ApiOperation(value = "按天查询统计数据接口", notes = "")
     @RequestMapping(path = "/QuerySta", method = RequestMethod.POST)
-    public String QuerySta(@RequestParam String updateTime) {
+    public String QuerySta() {
 
         return queryStaService.querySta();
     }

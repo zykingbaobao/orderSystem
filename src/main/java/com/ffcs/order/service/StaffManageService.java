@@ -83,7 +83,7 @@ public class StaffManageService {
             list=new ArrayList<Staff>();
             list=re.select();
           List<Map<String,String>> lists=new ArrayList<Map<String,String>>();
-            for (int i=0;i<list.size();i++){
+          for (int i=0;i<list.size();i++){
                data=new HashMap<>();
                data.put("staffId",Integer.toString(list.get(i).getStaffId()));
                 data.put("staffName",list.get(i).getStaffName());
@@ -92,10 +92,10 @@ public class StaffManageService {
                 lists.add(data);
             }
             ReInfoPojo2 reInfoPojo2=new ReInfoPojo2();
-            reInfoPojo2.setCode("1");
+            reInfoPojo2.setCode("0");
             reInfoPojo2.setData(lists);
             reInfoPojo2.setMessage("查询列表成功！");
-            String gson= json.toJSONString(data);
+            String gson= json.toJSONString(reInfoPojo2);
             return gson;
 
 
@@ -103,7 +103,7 @@ public class StaffManageService {
         }else {
             Map<String,String> data=new HashMap<>();
             ReInfoPojo reInfoPojo=new ReInfoPojo();
-            reInfoPojo.setCode("0");
+            reInfoPojo.setCode("-1");
             reInfoPojo.setData(data);
             reInfoPojo.setMessage("查询列表为空！");
             String gson= json.toJSONString(reInfoPojo);
@@ -120,7 +120,7 @@ public class StaffManageService {
 
             String gson= json.toJSONString(jwTtool.getToken(Integer.toString(staffId)));
             ReInfoPojo reInfoPojo =new ReInfoPojo();
-            reInfoPojo.setCode("1");
+            reInfoPojo.setCode("0");
             reInfoPojo.setMessage("登陆成功！");
             Map<String,String> data=new HashMap<>();
             data.put("token",gson);
@@ -135,7 +135,7 @@ public class StaffManageService {
 
             String gson= json.toJSONString(jwTtool.getToken(Integer.toString(staffId)));
             ReInfoPojo reInfoPojo =new ReInfoPojo();
-            reInfoPojo.setCode("0");
+            reInfoPojo.setCode("-1");
             reInfoPojo.setMessage("登陆失败！");
             Map<String,String> data=new HashMap<>();
             reInfoPojo.setData(data);

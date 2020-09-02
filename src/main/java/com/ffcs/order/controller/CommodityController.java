@@ -3,25 +3,24 @@ import com.ffcs.order.entity.Commodity;
 import com.ffcs.order.service.CommodityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/commodity")   
+@RequestMapping("/commodity")
+@RestController
 public class CommodityController {
     @Autowired
     private CommodityService commodityService;
 
     //查询所有商品
-    @RequestMapping("/findAll.action")
+    @RequestMapping(path = "/findAll.action",method = RequestMethod.POST)
     public String findAll() {//分页查询currentPage
 
         return commodityService.findAll();
     }
 
     //添加商品
-    @RequestMapping("/add.action")
+    @RequestMapping(path ="/add.action",method = RequestMethod.POST)
     @ResponseBody
     public String add(@RequestParam String commodityName,
                       @RequestParam String describe,
@@ -39,7 +38,7 @@ public class CommodityController {
         return commodityService.insertCommodity(commodity);
     }
     //编辑
-    @RequestMapping("/edit.action")
+    @RequestMapping(path ="/edit.action",method = RequestMethod.POST)
     @ResponseBody
     public String edit(@RequestParam String commodityId,
                      @RequestParam String describe,
@@ -60,7 +59,7 @@ public class CommodityController {
     }
 
     //删除商品
-    @RequestMapping("/delete.action")
+    @RequestMapping(path ="/delete.action",method = RequestMethod.POST)
     @ResponseBody
     public String delete(String commodityId) {
        return commodityService.deleteCommodity(commodityId);

@@ -27,7 +27,7 @@ public  String querySta(){
     data.put("orderNumber",String.valueOf(us.getOrderNumber()));
     data.put("orderAmount",String.valueOf(us.getOrderAmount()));
     reInfoPojo.setData(data);
-    String gson= json.toJSONString(us);
+    String gson= json.toJSONString(reInfoPojo);
     return gson;
 }
 
