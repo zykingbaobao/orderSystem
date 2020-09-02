@@ -2,6 +2,7 @@ package com.ffcs.order.mapper;
 
 
 import com.ffcs.order.entity.Cancelorderapplication;
+import com.ffcs.order.entity.Detailorder;
 import com.ffcs.order.entity.Order;
 
 import org.apache.ibatis.annotations.Mapper;
@@ -15,6 +16,9 @@ public interface OrderMapper {
     public int  insertCancelOrder(Cancelorderapplication cancelorderapplication);
     public List<Order> queryOrderList();
     public List<Cancelorderapplication> queryCancelList();
-    public int updateOrder(int orderId, int status);
-    public int updateCancelOrder(int orderId, String feedback, int status);
+    public int updateOrder(Integer orderId, Integer status);
+    public int updateCancelOrder(Integer orderId, String feedback, Integer status);
+    public List<Detailorder> queryOrderDetail(Integer orderId);
+    public Cancelorderapplication queryCancelOrderById(Integer orderId);
+    public String queryCommodityNameById(Integer commodityId);
 }

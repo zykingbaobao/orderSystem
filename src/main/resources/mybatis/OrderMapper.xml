@@ -12,16 +12,28 @@
     </insert>
 
 
-    <select id="queryOrderList">
-        select * from t_order order by createTime desc
+
+
+
+    <select id="queryCommodityNameById" resultType="String">
+        select commodityName from t_commodity where  commodityId=#{commodityId}
     </select>
-    <select id="queryCancelList" resultType="">
-        select * from t_cancelorderapplication order by createTime desc
+    <select id="queryOrderDetail" resultType="com.ffcs.order.entity.Detailorder">
+        select * from t_detailorder where  orderId=#{orderId}
+    </select>
+    <select id="queryCancelOrderById" resultType="com.ffcs.order.entity.Cancelorderapplication">
+        select * from t_cancelorderapplication where  orderId=#{orderId}
+    </select>
+    <select id="queryOrderList" resultType="com.ffcs.order.entity.Order">
+        select * from t_order
+    </select>
+    <select id="queryCancelList" resultType="com.ffcs.order.entity.Cancelorderapplication">
+        select * from t_cancelorderapplication
     </select>
     <update id="updateOrder">
         update t_order set status=#{status} where orderId=#{orderId}
     </update>
     <update id="updateCancelOrder" >
-        update t_order set status=#{status} and feedback=#{feedback} where orderId=#{orderId}
+        update t_cancelorderapplication set status=#{status} , feedback=#{feedback} where orderId=#{orderId}
     </update>
 </mapper>
