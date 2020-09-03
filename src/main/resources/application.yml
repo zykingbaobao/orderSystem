@@ -9,7 +9,7 @@ spring:
         name: order
     datasource:
         password: FFCS-java3
-        url: jdbc:mysql://47.94.149.145/java3db?useSSL=false&allowMultiQueries=true&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&serverTimezone=CTT
+        url: jdbc:mysql://47.110.48.134/java3db?useSSL=false&allowMultiQueries=true&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&serverTimezone=CTT
         username: java3
         driver-class-name: com.mysql.cj.jdbc.Driver
 config:
