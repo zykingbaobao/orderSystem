@@ -20,6 +20,7 @@ import java.util.List;
 
 @Api(tags = "用户订单管理")
 @RestController
+@RequestMapping(path ="/ident")
 public class OrderConttroller {
 
     @Resource
