@@ -127,9 +127,7 @@ if(i>=1){
     }
 
 
-
-
-
-
-
+    public List<Commodity> getListBySortId(int sortId) {
+        return commodityMapper.getListBySortId(sortId);
+    }
 }
