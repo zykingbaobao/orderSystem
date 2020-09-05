@@ -95,19 +95,22 @@ public class StaffManageService {
             reInfoPojo2.setCode("0");
             reInfoPojo2.setData(lists);
             reInfoPojo2.setMessage("查询列表成功！");
+            reInfoPojo2.setTotal(list.size());
             String gson= json.toJSONString(reInfoPojo2);
             return gson;
 
 
 
         }else {
-            Map<String,String> data=new HashMap<>();
-            ReInfoPojo reInfoPojo=new ReInfoPojo();
-            reInfoPojo.setCode("-1");
-            reInfoPojo.setData(data);
-            reInfoPojo.setMessage("查询列表为空！");
-            String gson= json.toJSONString(reInfoPojo);
+            List<Map<String,String>> lists=new ArrayList<Map<String,String>>();
+            ReInfoPojo2 reInfoPojo2=new ReInfoPojo2();
+            reInfoPojo2.setCode("-1");
+            reInfoPojo2.setData(lists);
+            reInfoPojo2.setMessage("查询列表失败！");
+            reInfoPojo2.setTotal(0);
+            String gson= json.toJSONString(reInfoPojo2);
             return gson;
+
         }
 
     }

@@ -11,7 +11,7 @@ public class ReInfoPojo2 {
     String code;
     String message;
     List<Map<String,String>> data;
-
+    int total;
 }
 
 
