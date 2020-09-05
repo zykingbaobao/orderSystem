@@ -71,7 +71,7 @@ public class CommodityController {
 
     }
 
-    //删除商品
+    //根据分类获取商品
     @PostMapping("eleme/menu/list")
     @ResponseBody
     public String getListBySortId(@RequestBody Commodity commodity) {
