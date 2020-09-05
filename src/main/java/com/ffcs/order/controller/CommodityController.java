@@ -1,9 +1,14 @@
 package com.ffcs.order.controller;
 import com.ffcs.order.entity.Commodity;
 import com.ffcs.order.service.CommodityService;
+import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/commodity")
@@ -63,6 +68,33 @@ public class CommodityController {
     @ResponseBody
     public String delete(String commodityId) {
        return commodityService.deleteCommodity(commodityId);
+
+    }
+
+    //删除商品
+    @PostMapping("eleme/menu/list")
+    @ResponseBody
+    public String getListBySortId(@RequestBody Commodity commodity) {
+        System.out.println("sortId="+commodity.getSortId());
+        Map<String,Object> map = new HashMap<String,Object>();
+        Map<String,Object> data = new HashMap<String,Object>();
+        Gson gson = new Gson();
+        List<Commodity> list = commodityService.getListBySortId(commodity.getSortId());
+
+        for(int i =0;i<list.size();i++){
+            System.out.println("name="+list.get(i).getCommodityName());
+        }
+        if(list!=null){
+            data.put("list",list);
+            map.put("code",0);
+            map.put("message","成功");
+            map.put("data",data);
+        }else{
+            map.put("code",0);
+            map.put("message","失败");
+        }
+
+        return gson.toJson(map);
 
     }
 }
