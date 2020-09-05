@@ -23,10 +23,20 @@ public class TokenInterceptor extends HandlerInterceptorAdapter {
         /** 地址过滤 */
         String uri = request.getRequestURI();
         System.out.println("uri="+uri);
+        /** Token 验证 */
+        String token = request.getHeader(jwTtool.getHeader());
+        String method = request.getMethod();
+        //白名单
+        if("OPTIONS".equals(method)){
+            return true;
+        }
         if (uri.contains("/login")) {
             return true;
         }
         if (uri.contains("/register")) {
+            return true;
+        }
+        if (uri.contains("/registration")) {
             return true;
         }
         if (uri.contains("/swagger-ui")) {
@@ -38,8 +48,7 @@ public class TokenInterceptor extends HandlerInterceptorAdapter {
         if (uri.contains("/swagger-resources")) {
             return true;
         }
-        /** Token 验证 */
-        String token = request.getHeader(jwTtool.getHeader());
+
         if (StringUtils.isEmpty(token)) {
             token = request.getParameter(jwTtool.getHeader());
         }
