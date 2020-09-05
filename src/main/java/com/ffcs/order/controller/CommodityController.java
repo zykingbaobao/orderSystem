@@ -13,7 +13,7 @@ public class CommodityController {
     private CommodityService commodityService;
 
     //查询所有商品
-    @RequestMapping(path = "/findAll.action",method = RequestMethod.POST)
+    @RequestMapping(path = "/findAll.action",method = RequestMethod.GET)
     public String findAll() {//分页查询currentPage
 
         return commodityService.findAll();
