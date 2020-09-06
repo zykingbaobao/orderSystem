@@ -23,6 +23,12 @@ public class CommodityController {
 
         return commodityService.findAll();
     }
+    //查询单个商品
+    @RequestMapping(path = "/findOne",method = RequestMethod.GET)
+    public String findOne(@RequestParam String commodityId) {//分页查询currentPage
+
+        return commodityService.findOne(Integer.valueOf(commodityId));
+    }
 
     //添加商品
     @RequestMapping(path ="/add.action",method = RequestMethod.POST)

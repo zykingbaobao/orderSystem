@@ -114,6 +114,41 @@ public class StaffManageService {
         }
 
     }
+    public String selectOne(Integer staffId){
+
+        Staff staff=new Staff();
+        JSONObject json=new JSONObject();
+        if(re.selectOne(staffId).getStaffName()!=null){
+            Map<String,String> data=new HashMap<>();
+            staff=re.selectOne(staffId);
+            List<Map<String,String>> lists=new ArrayList<Map<String,String>>();
+                data=new HashMap<>();
+                data.put("staffId",Integer.toString(staff.getStaffId()));
+                data.put("staffName",staff.getStaffName());
+                data.put("password",staff.getPassword());
+                data.put("permissionId",staff.getPermissionId());
+                data.put("code","0");
+                data.put("message","查询成功！");
+            String gson= json.toJSONString(data);
+            return gson;
+
+
+
+        }else {
+            Map<String,String> data=new HashMap<>();
+            data=new HashMap<>();
+            data.put("staffId",Integer.toString(staff.getStaffId()));
+            data.put("staffName",staff.getStaffName());
+            data.put("password",staff.getPassword());
+            data.put("permissionId",staff.getPermissionId());
+            data.put("code","-1");
+            data.put("message","查询失败！");
+            String gson= json.toJSONString(data);
+            return gson;
+
+        }
+
+    }
     public String login( Integer staffId,
                          String password ){
 

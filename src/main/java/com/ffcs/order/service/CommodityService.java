@@ -127,7 +127,36 @@ if(i>=1){
         }
 
     }
+    public String findOne(Integer commodityId){
 
+        Commodity commodity=new Commodity();
+        JSONObject json=new JSONObject();
+        if(commodityMapper.selectOne(commodityId).getCommodityName()!=null){
+            Map<String,String> data=new HashMap<>();
+            commodity=commodityMapper.selectOne(commodityId);
+                data=new HashMap<>();
+                data.put("commodityId",Integer.toString(commodity.getCommodityId()));
+                data.put("commodityName",commodity.getCommodityName());
+                data.put("describe",commodity.getDescribe());
+                data.put("commodityMoney",String.valueOf(commodity.getCommodityMoney()));
+                data.put("commodityImageUrl",commodity.getCommodityImageUrl());
+                data.put("sortId",Integer.toString(commodity.getSortId()));
+                data.put("materials",commodity.getMaterials());
+               data.put("code","0");
+               data.put("message","查询成功！");
+            String gson= json.toJSONString(data);
+            return gson;
+
+        }else {
+            Map<String,String> data=new HashMap<>();
+            data=new HashMap<>();
+            data.put("code","-1");
+            data.put("message","查询失败！");
+            String gson= json.toJSONString(data);
+            return gson;
+        }
+
+    }
 
     public List<Commodity> getListBySortId(int sortId) {
         return commodityMapper.getListBySortId(sortId);

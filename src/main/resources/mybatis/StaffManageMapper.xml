@@ -13,6 +13,9 @@
     <select id="select" resultType="com.ffcs.order.entity.Staff">
         select * from t_staff
     </select>
+    <select id="selectOne" resultType="com.ffcs.order.entity.Staff">
+        select * from t_staff where staffId=#{staffId}
+    </select>
     <select id="login"  resultType="com.ffcs.order.entity.Staff">
         select  * from t_staff where staffId=#{staffId} and password=#{password}
     </select>

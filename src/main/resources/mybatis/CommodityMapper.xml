@@ -12,6 +12,9 @@
     <select id="select" resultType="com.ffcs.order.entity.Commodity">
         select * from t_commodity
     </select>
+    <select id="selectOne" resultType="com.ffcs.order.entity.Commodity">
+        select * from t_commodity where commodityId=#{commodityId}
+    </select>
     <delete id="delete">
 
         delete from t_commodity where commodityId=#{commodityId}
