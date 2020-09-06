@@ -3,6 +3,7 @@ package com.ffcs.order.service;
 import com.alibaba.fastjson.JSONObject;
 import com.ffcs.order.entity.Staff;
 import com.ffcs.order.mapper.StaffManageMapper;
+import com.ffcs.order.pojo.Page;
 import com.ffcs.order.pojo.ReInfoPojo;
 import com.ffcs.order.pojo.ReInfoPojo2;
 import com.ffcs.order.tools.JWTtool;
@@ -73,15 +74,17 @@ public class StaffManageService {
         }
 
     }
-    public String select(){
-
+    public String select(Page page){
+        int limit=page.getLimit();
+        int offset=page.getOffset();
+        offset=offset*limit;
         Staff staff=new Staff();
         JSONObject json=new JSONObject();
         List<Staff> list=null;
-        if(re.select().size()!=0){
+        if(re.selectBypage(offset,limit).size()!=0){
             Map<String,String> data=new HashMap<>();
             list=new ArrayList<Staff>();
-            list=re.select();
+            list=re.selectBypage(offset,limit);
           List<Map<String,String>> lists=new ArrayList<Map<String,String>>();
           for (int i=0;i<list.size();i++){
                data=new HashMap<>();
@@ -95,7 +98,7 @@ public class StaffManageService {
             reInfoPojo2.setCode("0");
             reInfoPojo2.setData(lists);
             reInfoPojo2.setMessage("查询列表成功！");
-            reInfoPojo2.setTotal(list.size());
+            reInfoPojo2.setTotal(re.select().size());
             String gson= json.toJSONString(reInfoPojo2);
             return gson;
 
@@ -156,7 +159,7 @@ public class StaffManageService {
         JSONObject json=new JSONObject();
         if(staff.getPermissionId()!=null){
 
-            String gson= json.toJSONString(jwTtool.getToken(Integer.toString(staffId)));
+            String gson= jwTtool.getToken(Integer.toString(staffId));
             ReInfoPojo reInfoPojo =new ReInfoPojo();
             reInfoPojo.setCode("0");
             reInfoPojo.setMessage("登陆成功！");

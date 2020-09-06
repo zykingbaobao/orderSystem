@@ -52,6 +52,7 @@ public class TokenInterceptor extends HandlerInterceptorAdapter {
         if (StringUtils.isEmpty(token)) {
             token = request.getParameter(jwTtool.getHeader());
         }
+        System.out.println("token ="+token);
         if (StringUtils.isEmpty(token)) {
             throw new SignatureException(jwTtool.getHeader() + "不能为空");
         }

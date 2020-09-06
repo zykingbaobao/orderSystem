@@ -2,6 +2,7 @@ package com.ffcs.order.controller;
 
 
 import com.ffcs.order.entity.Staff;
+import com.ffcs.order.pojo.Page;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,9 +37,9 @@ public class StaffManageController {
     }
     @ApiOperation(value = "员工查询列表接口", notes = "")
     @RequestMapping(path = "/select", method = RequestMethod.POST)
-    public String select() {
+    public String select(@RequestBody Page page) {
 
-        return staffManageService.select();
+        return staffManageService.select(page);
     }
 
     @ApiOperation(value = "员工登陆接口", notes = "")

@@ -2,21 +2,25 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ffcs.order.mapper.CommodityMapper">
 <insert id="insert" >
-    insert into t_commodity(commodityName,commodityMoney,describe,commodityImageUrl,sortId,materials)
-    value (#{commodityName},#{commodityMoney},#{describe},#{commodityImageUrl},#{sortId},#{materials})
+    insert into t_commodity(commodityName,commodityMoney,`describe`,commodityImageUrl,sortId,materials,createTime,updateTime)
+    value (#{commodityName},#{commodityMoney},#{describe},#{commodityImageUrl},#{sortId},#{materials},#{createTime},#{updateTime})
 </insert>
     <update id="editCommodity" >
-    update  t_commodity set describe=#{describe},commodityMoney=#{commodityMoney},commodityImageUrl=#{commodityImageUrl},sortId=#{sortId},materials=#{materials}
+    update  t_commodity set `describe`=#{describe},commodityMoney=#{commodityMoney},commodityImageUrl=#{commodityImageUrl},sortId=#{sortId}
     where commodityId=#{commodityId}
     </update>
     <select id="select" resultType="com.ffcs.order.entity.Commodity">
         select * from t_commodity
     </select>
+
+
+    <select id="selectBypage" resultType="com.ffcs.order.entity.Commodity">
+        select * from t_commodity LIMIT #{offset},#{limit}
+    </select>
     <select id="selectOne" resultType="com.ffcs.order.entity.Commodity">
         select * from t_commodity where commodityId=#{commodityId}
     </select>
     <delete id="delete">
-
         delete from t_commodity where commodityId=#{commodityId}
     </delete>
 </mapper>

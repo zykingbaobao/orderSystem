@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.ffcs.order.entity.Commodity;
 import com.ffcs.order.entity.Staff;
 import com.ffcs.order.mapper.CommodityMapper;
+import com.ffcs.order.pojo.Page;
 import com.ffcs.order.pojo.ReInfoPojo;
 import com.ffcs.order.pojo.ReInfoPojo2;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,10 +22,11 @@ import java.util.Map;
 public class CommodityService {
     @Resource
     private CommodityMapper commodityMapper;
-    public String deleteCommodity(String commodityId) {
+    public String deleteCommodity(Integer commodityId) {
+        System.out.println("commodityId="+commodityId);
     int i=0;
     JSONObject json=new JSONObject();
-    i=commodityMapper.delete(Integer.valueOf(commodityId));
+    i=commodityMapper.delete(commodityId);
 if(i>=1){
 
     Map<String,String> data=new HashMap<>();
@@ -86,15 +88,18 @@ if(i>=1){
             }
 
     }
-    public String findAll(){
+    public String findAll(Page page){
+        int limit=page.getLimit();
+        int offset=page.getOffset();
+        offset=offset*limit;
 
         Commodity commodity=new Commodity();
         JSONObject json=new JSONObject();
         List<Commodity> list=null;
-        if(commodityMapper.select().size()!=0){
+        if(commodityMapper.selectBypage(offset,limit).size()!=0){
             Map<String,String> data=new HashMap<>();
             list=new ArrayList<Commodity>();
-            list=commodityMapper.select();
+            list=commodityMapper.selectBypage(offset,limit);
             List<Map<String,String>> lists=new ArrayList<Map<String,String>>();
             for (int i=0;i<list.size();i++){
                 data=new HashMap<>();
@@ -111,7 +116,7 @@ if(i>=1){
             reInfoPojo2.setCode("0");
             reInfoPojo2.setData(lists);
             reInfoPojo2.setMessage("查询列表成功！");
-            reInfoPojo2.setTotal(list.size());
+            reInfoPojo2.setTotal(commodityMapper.select().size());
             String gson= json.toJSONString(reInfoPojo2);
             return gson;
 
