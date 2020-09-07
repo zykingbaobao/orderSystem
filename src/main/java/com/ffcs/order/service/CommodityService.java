@@ -91,7 +91,7 @@ if(i>=1){
     public String findAll(Page page){
         int limit=page.getLimit();
         int offset=page.getOffset();
-        offset=offset*limit;
+//        offset=offset+limit;
 
         Commodity commodity=new Commodity();
         JSONObject json=new JSONObject();

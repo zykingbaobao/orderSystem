@@ -17,7 +17,7 @@ public interface OrderMapper {
     public List<Order> queryOrderList();
     public List<Cancelorderapplication> queryCancelList();
     public int updateOrder(Integer orderId, Integer status);
-    public int updateCancelOrder(Integer orderId, String feedback, Integer status);
+    public int updateCancelOrder(Integer orderId, String feedback, String status);
     public List<Detailorder> queryOrderDetail(Integer orderId);
     public Cancelorderapplication queryCancelOrderById(Integer orderId);
     public String queryCommodityNameById(Integer commodityId);

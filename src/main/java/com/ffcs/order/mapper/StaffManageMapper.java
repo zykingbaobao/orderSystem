@@ -14,4 +14,5 @@ public interface StaffManageMapper {
     public List<Staff> selectBypage(Integer offset,Integer limit);
     public Staff selectOne(Integer staffId);
     public Staff login(Integer staffId, String password);
+    public int delete(Integer staffId);
 }

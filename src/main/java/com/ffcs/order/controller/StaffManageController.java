@@ -20,20 +20,16 @@ public class StaffManageController {
 
     @ApiOperation(value = "员工注册接口", notes = "")
     @RequestMapping(path = "/register", method = RequestMethod.POST)
-    public String register( @RequestParam String staffName,
-                            @RequestParam String permissionId,
-                            @RequestParam String password) {
+    public String register( @RequestBody Staff staff) {
 
-           return staffManageService.regisiter(staffName,permissionId,password);
+           return staffManageService.regisiter(staff.getStaffName(),staff.getPermissionId(),staff.getPassword());
     }
 
     @ApiOperation(value = "员工更新接口", notes = "")
     @RequestMapping(path = "/update", method = RequestMethod.POST)
-    public String update( @RequestParam String staffName,
-                            @RequestParam String permissionId,
-                            @RequestParam String password) {
+    public String update(@RequestBody Staff staff) {
 
-        return staffManageService.update(staffName,permissionId,password);
+        return staffManageService.update(staff.getStaffId(),staff.getPermissionId(),staff.getPassword());
     }
     @ApiOperation(value = "员工查询列表接口", notes = "")
     @RequestMapping(path = "/select", method = RequestMethod.POST)
@@ -49,8 +45,14 @@ public class StaffManageController {
     }
     @ApiOperation(value = "员工查询单个接口", notes = "")
     @RequestMapping(path = "/selectOne", method = RequestMethod.POST)
-    public String selectOne(@RequestParam String staffId) {
+    public String selectOne(@RequestBody Staff staff) {
 
-        return staffManageService.selectOne(Integer.valueOf(staffId));
+        return staffManageService.selectOne(staff.getStaffId());
+    }
+
+    @ApiOperation(value = "员工登陆接口", notes = "")
+    @RequestMapping(path = "/delete", method = RequestMethod.POST)
+    public String delete(@RequestBody Staff staff) {
+        return staffManageService.delete(staff.getStaffId());
     }
 }

@@ -152,7 +152,7 @@ public class OrderService {
             return json.toJSONString(reInfoPojo);
         }
     }
-    public String updateCancelOrder(int orderId,String feedback,int status){
+    public String updateCancelOrder(int orderId,String feedback,String status){
         ReInfoPojo reInfoPojo=new ReInfoPojo();
         int i=mapper.updateCancelOrder(orderId,feedback,status);
         Map<String,String> data=new HashMap<String,String>();

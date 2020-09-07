@@ -9,10 +9,7 @@ import com.ffcs.order.service.OrderService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
@@ -55,21 +52,26 @@ public class OrderConttroller {
     }
 
     @ApiOperation(value = "查询全部退订订单接口", notes = "")
-    @RequestMapping(path = "/cancelList", method = RequestMethod.POST)
+        @RequestMapping(path = "/cancelList", method = RequestMethod.POST)
     public String queryCancelList() {
         return orderService.queryCancelList();
     }
-
-    @ApiOperation(value = "审核退订订单接口", notes = "")
-    @RequestMapping(path = "/examine", method = RequestMethod.POST)
-    public String queryCancelList(@RequestParam int orderId,@RequestParam String feedback,@RequestParam int status) {
-        return orderService.updateCancelOrder(orderId,feedback,status);
-    }
+//
+//    @ApiOperation(value = "审核退订订单接口", notes = "")
+//    @RequestMapping(path = "/examine", method = RequestMethod.POST)
+//    public String queryCancelList(@RequestParam int orderId,@RequestParam String feedback,@RequestParam int status) {
+//        return orderService.updateCancelOrder(orderId,feedback,status);
+//    }
 
     @ApiOperation(value = "订单状态更新接口", notes = "")
     @RequestMapping(path = "/update", method = RequestMethod.POST)
-    public String update(@RequestParam int orderId,@RequestParam int status) {
-        return orderService.updateOrder(orderId,status);
+    public String update(@RequestBody Order order) {
+        return orderService.updateOrder(order.getOrderId(),order.getStatus());
+    }
+    @ApiOperation(value = "取消订单状态更新接口", notes = "")
+    @RequestMapping(path = "/updateCancel", method = RequestMethod.POST)
+    public String update(@RequestBody Cancelorderapplication cancelorderapplication) {
+        return orderService.updateCancelOrder(cancelorderapplication.getOrderId(),cancelorderapplication.getFeedback(),cancelorderapplication.getStatus());
     }
 
 }

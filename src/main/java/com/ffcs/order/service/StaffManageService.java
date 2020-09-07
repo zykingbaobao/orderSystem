@@ -11,10 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 @Service
 public class StaffManageService {
@@ -29,19 +27,24 @@ public class StaffManageService {
 
         Staff staff=new Staff();
         JSONObject json=new JSONObject();
+        SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd");
+        Date date=new Date();
+        String ss=simpleDateFormat.format(date);
         staff.setStaffName(staffName);
         staff.setPermissionId(permissionId);
         staff.setPassword(password);
+        staff.setCreateTime(ss);
+        staff.setUpdateTime(ss);
         if(re.insert(staff)>=1){
 
             Map<String,String> data=new HashMap<>();
-            data.put("code","1");
+            data.put("code","0");
             data.put("message","注册成功！");
            String gson= json.toJSONString( data);
             return gson;
         }else {
             Map<String,String> data=new HashMap<>();
-            data.put("code","0");
+            data.put("code","-1");
             data.put("message","注册失败！");
             String gson= json.toJSONString( data);
             return gson;
@@ -49,25 +52,25 @@ public class StaffManageService {
 
     }
 
-    public String update( String staffName,
+    public String update(Integer staffId,
                              String permissionId,
                              String password){
 
         Staff staff=new Staff();
         JSONObject json=new JSONObject();
-        staff.setStaffName(staffName);
+        staff.setStaffId(staffId);
         staff.setPermissionId(permissionId);
         staff.setPassword(password);
         if(re.update(staff)>=1){
 
             Map<String,String> data=new HashMap<>();
-            data.put("code","1");
+            data.put("code","0");
             data.put("message","更新成功！");
             String gson= json.toJSONString( data);
             return gson;
         }else {
             Map<String,String> data=new HashMap<>();
-            data.put("code","0");
+            data.put("code","-1");
             data.put("message","更新失败！");
             String gson= json.toJSONString( data);
             return gson;
@@ -77,7 +80,7 @@ public class StaffManageService {
     public String select(Page page){
         int limit=page.getLimit();
         int offset=page.getOffset();
-        offset=offset*limit;
+//        offset=offset*limit;
         Staff staff=new Staff();
         JSONObject json=new JSONObject();
         List<Staff> list=null;
@@ -185,5 +188,28 @@ public class StaffManageService {
         }
 
     }
+    public String delete( Integer staffId ){
 
+        JSONObject json=new JSONObject();
+        String gson="";
+        if(re.delete(staffId)>=0){
+
+            ReInfoPojo reInfoPojo =new ReInfoPojo();
+            reInfoPojo.setCode("0");
+            reInfoPojo.setMessage("删除成功！");
+            Map<String,String> data=new HashMap<>();
+            reInfoPojo.setData(data);
+            gson= json.toJSONString(reInfoPojo);
+            return gson;
+        }else {
+            ReInfoPojo reInfoPojo =new ReInfoPojo();
+            Map<String,String> data=new HashMap<>();
+            reInfoPojo.setCode("-1");
+            reInfoPojo.setMessage("删除失败！");
+            reInfoPojo.setData(data);
+            gson= json.toJSONString(reInfoPojo);
+            return gson;
+        }
+
+    }
 }
