@@ -8,10 +8,16 @@ import lombok.Data;
  */
 @Data
 public class Cart {
+    private int id;
     private String userId;
-    private String commodityId;
     private int amount;
-    private String createTime;
-    private String updateTime;
-
+    private  int commodityId;
+    private  String commodityName;
+    private  String describe;
+    private  float commodityMoney;
+    private  String commodityImageUrl;
+    private  int sortId;
+    private  String materials;
+    private  String createTime;
+    private  String updateTime;
 }

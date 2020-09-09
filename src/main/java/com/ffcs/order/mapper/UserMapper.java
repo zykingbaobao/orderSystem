@@ -21,7 +21,7 @@ public interface UserMapper {
     List<User> getUserByNameAndId(User user);
 
     @Select("select * from t_user where userId=#{userId}")
-    List<User> getUserById(User user);
+    List<User> getUserById(String userId);
 
     @Select("select * from t_user where userName like CONCAT('%',#{userName},'%')")
     List<User> getUserByName(User user);

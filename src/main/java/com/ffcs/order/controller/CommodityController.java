@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
-@RequestMapping("/commdity")
+@RequestMapping("/commodity")
 @RestController
 public class CommodityController {
     @Autowired
@@ -88,7 +88,7 @@ public class CommodityController {
             map.put("message","³É¹¦");
             map.put("data",data);
         }else{
-            map.put("code",0);
+            map.put("code",-1);
             map.put("message","Ê§°Ü");
         }
 

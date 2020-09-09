@@ -119,4 +119,27 @@ public class OrderConttroller {
 
         return gson.toJson(map);
     }
+
+    @ResponseBody
+    @PostMapping("eleme/settle")
+    public String settle(@RequestBody Map<String,Object> request){
+        String address = request.get("address")+"";
+        //String address = request.get("address")+"";
+        Map<String,Object> map = new HashMap<String,Object>();
+        Map<String,Object> data = new HashMap<String,Object>();
+        Gson gson = new Gson();
+        List<Order> list1 = null;
+
+        if(list1!=null){
+            data.put("list",list1);
+            map.put("data",data);
+            map.put("code",0);
+            map.put("message","成功");
+        }else{
+            map.put("code",-1);
+            map.put("message","失败");
+        }
+
+        return gson.toJson(map);
+    }
 }
