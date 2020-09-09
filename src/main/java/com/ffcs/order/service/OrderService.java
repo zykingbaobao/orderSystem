@@ -170,4 +170,20 @@ public class OrderService {
 
     }
 
+    /**
+     * 根据userId返回订单
+     * @return
+     */
+    public List<Order> getOrderByUserId(Order order) {
+        return mapper.getOrderByUserId(order);
+    }
+
+    /**
+     * 根据状态查询订单
+     * @param order
+     * @return
+     */
+    public List<Order> getOrderByStatus(Order order){
+        return mapper.getOrderByStatus(order);
+    }
 }

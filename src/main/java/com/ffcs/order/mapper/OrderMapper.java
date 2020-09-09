@@ -6,6 +6,7 @@ import com.ffcs.order.entity.Detailorder;
 import com.ffcs.order.entity.Order;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 
@@ -21,4 +22,10 @@ public interface OrderMapper {
     public List<Detailorder> queryOrderDetail(Integer orderId);
     public Cancelorderapplication queryCancelOrderById(Integer orderId);
     public String queryCommodityNameById(Integer commodityId);
+
+    @Select("select * from t_order where 1=1 and userId=#{userId}")
+    public List<Order> getOrderByUserId(Order order);
+
+    @Select("select * from t_order where 1=1 and status=#{status} and userId=#{userId}")
+    public List<Order> getOrderByStatus(Order order);
 }
