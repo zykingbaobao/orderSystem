@@ -15,7 +15,7 @@ import javax.annotation.Resource;
 @RequestMapping(path ="/staff")
 
 public class StaffManageController {
-    @Resource
+    @Autowired
     StaffManageService staffManageService;
 
     @ApiOperation(value = "员工注册接口", notes = "")

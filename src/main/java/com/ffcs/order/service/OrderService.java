@@ -48,12 +48,12 @@ public class OrderService {
                 orderPojo.setCreateTime(list.get(i).getCreateTime());
                 orderPojo.setOrderId(String.valueOf(list.get(i).getOrderId()));
                 orderPojo.setStatus(String.valueOf(list.get(i).getStatus()));
-               if(mapper.queryCancelOrderById(list.get(i).getOrderId()).getReason()!=null){
-                   Cancelorderapplication cancelorderapplication=mapper.queryCancelOrderById(list.get(i).getOrderId());
-                   orderPojo.setFeedback(cancelorderapplication.getFeedback());
-               }else{
+//               if(mapper.queryCancelOrderById(list.get(i).getOrderId()).getReason()!=null){
+//                   Cancelorderapplication cancelorderapplication=mapper.queryCancelOrderById(list.get(i).getOrderId());
+//                   orderPojo.setFeedback(cancelorderapplication.getFeedback());
+//               }else{
                    orderPojo.setFeedback("");
-               }
+//               }
             list3=new ArrayList<Map<String,String>>();
 
                 float amount=0;
