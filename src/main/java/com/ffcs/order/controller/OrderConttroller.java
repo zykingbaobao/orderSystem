@@ -124,7 +124,7 @@ public class OrderConttroller {
     @PostMapping("eleme/settle")
     public String settle(@RequestBody Map<String,Object> request){
         String address = request.get("address")+"";
-        //String address = request.get("address")+"";
+        int orderNum = Integer.parseInt(request.get("count")+"");
         Map<String,Object> map = new HashMap<String,Object>();
         Map<String,Object> data = new HashMap<String,Object>();
         Gson gson = new Gson();
