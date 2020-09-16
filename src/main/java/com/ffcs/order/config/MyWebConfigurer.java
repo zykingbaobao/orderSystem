@@ -15,8 +15,8 @@ public class MyWebConfigurer implements WebMvcConfigurer {
          */
         corsRegistry.addMapping("/**")
                 .allowCredentials(true)
-                .allowedOrigins("http://localhost:8080")
-                .allowedOrigins("http://localhost:8089")
+                .allowedOrigins("http://47.110.48.134:8080")
+                .allowedOrigins("http://47.110.48.134:8089")
                 .allowedMethods("POST", "GET", "PUT", "OPTIONS", "DELETE")
                 .allowedHeaders("*")
                 .maxAge(3600);
