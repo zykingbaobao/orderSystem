@@ -4,7 +4,8 @@
                                              │   ├── entity                  // java实体类
                                              │   ├── controller              // 控制层
                                              │   ├── service                 // 服务层
-                                             │   └──mapper                   // 数据调用层
+                                             |   ├── tools                   // 工具   
+                                             │   └──mapper                   // 数据调用层
                                              │   └── test                   //测试用文件夹
                                              ├── resources
                                              │   ├──mybatis                 //mybatis的xml文件存放
